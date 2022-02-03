@@ -53,8 +53,6 @@ class LoadContent
 
         foreach (Finder::create()->files()->name('*.*')->in($contentPath) as $file) {
             $directory = $this->getNestedDirectory($file, $contentPath);
-            dump($file->getRealPath());
-
             $files[$directory.basename($file->getRealPath(), '.'.$this->getFileExtension($file->getRealPath()))] = $file->getRealPath();
         }
 
